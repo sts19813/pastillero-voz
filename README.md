@@ -124,6 +124,10 @@ Un HTTP 200 `accepted` indica aceptación por Twilio, **no entrega**; compruebe 
 3. Abra `firmware/pastillero/pastillero.ino` en Arduino IDE. Seleccione **ESP32S3 Dev Module**, el puerto correspondiente y los parámetros de memoria que correspondan a su placa N16R8; si no aparece el puerto, revise cable USB de datos y controlador USB. Compile y cargue. Abra el monitor serie a 115200 baudios.
 4. Para una prueba rápida, programe una hora 2–3 minutos en el futuro. Para probar la escalación puede reducir temporalmente `RESPONSE_MS` a `60UL * 1000`; después restablezca los 10 minutos y cargue de nuevo. La hora diaria se modifica en `config.h` y requiere volver a cargar el programa.
 
+## Verificación del proyecto
+
+El firmware se compiló con Arduino CLI para `esp32:esp32:esp32s3`, paquete ESP32 4.0.0, Adafruit GFX 1.13.0, Adafruit SSD1306 2.5.17 y DFRobotDFPlayerMini 1.0.6. Las pruebas del servidor se ejecutan con `python3 -m unittest discover -s tests -v` y simulan el proveedor; no sustituyen las pruebas con componentes ni el envío real.
+
 ## Pruebas de aceptación
 
 - Confirme que se ve la hora correcta y Wi‑Fi conectado; compruebe el audio y el volumen. Si falta la hora, revise Wi‑Fi, internet y NTP.
